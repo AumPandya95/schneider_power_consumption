@@ -1,8 +1,10 @@
 
 venv/
 *.csv
+*.csv#
 */.ipynb_checkpoints/
 *.log
 .vscode
 .idea
 *.Rhistory
+model_comparison/
