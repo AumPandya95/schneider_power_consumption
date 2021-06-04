@@ -18,15 +18,25 @@ def data_read(
 
 
 def extract_data_for_site(
+        site_id: str,
         data_file: Union[pd.DataFrame, np.array],
-        site_id: str
+        column_name: str,
+        filters: list = None
 ) -> pd.DataFrame:
     """
     Extract data for a given site_id.
-    :param data_file: str: Data to be used for filtering
     :param site_id: str: Name of the site_id which needs to be filtered
-    :return: pd.DataFrame
+    :param data_file: pd.DataFrame: Data to be used for filtering
+    :param column_name: str: The name of the column on which filtering is supposed to be performed
+    :param filters: list: List of values which need to be filtered from data
+    :return: pd.DataFrame: Filtered data frame
     """
+    if filters:
+        filtered_data = data_file[data_file[column_name].isin(filters)]
+    else:
+        filtered_data = data_file[data_file[column_name].str.startswith(site_id)]
+
+    return filtered_data
 
 
 def extract_data(
@@ -45,6 +55,7 @@ def extract_data(
     training_data.sort_values(by="Timestamp", ascending=True, inplace=True)
 
     # Filtering data sets for the given site
+    filtered_training_data = extract_data_for_site(data_file=training_data, site_id=site)
 
 
 if __name__ == "__main__":
