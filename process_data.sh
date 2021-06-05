@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-#!/usr/bin/env python
+
+printf "Starting the data processing operation. \nData from the /data/raw folder's zip file will be unzipped and processed
+through to generate processed data in the /data/processed/ folder.\n----------------------------------------------\n"
 
 for f in ./data/raw/*.zip;
 do
@@ -9,17 +11,18 @@ do
         then
           TRAIN=$(basename "$l" | grep -i -s '\btraining\b');
         else
-          printf "\t"
+          printf "\t" | sed '/^[[:space:]]*$/d'
       fi
       if basename "$l" | grep -i -s '\bmetadata\b'
         then
           METADATA=$(basename "$l" | grep -i -s '\bmetadata\b');
         else
-          printf "\t"
+          printf "\t" | sed '/^[[:space:]]*$/d'
       fi
     done
+echo "----------------------------------------------"
 done;
-awk '{$1=$1};1'
+
 echo "This is the file -> $TRAIN"
 echo "This is the file -> $METADATA"
 
