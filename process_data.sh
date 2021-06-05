@@ -7,7 +7,8 @@ printf "STEP 1:\n"
 for f in ./data/raw/*.zip;
 do
   printf "\tFound the zipped data folder -> %s \n\t Extracting the files..." "$f"
-  for l in $(unzip -j "$f" -d ./data/raw/ | tail -5);
+  unzip -j -n "$f" -d ./data/raw/
+  for l in $(unzip -Z1 "$f" | tail -5);
     do
       if basename "$l" | grep -i -s '\btraining\b'
         then
