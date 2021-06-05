@@ -3,8 +3,10 @@
 printf "Starting the data processing operation. \nData from the /data/raw folder's zip file will be unzipped and processed
 through to generate processed data in the /data/processed/ folder.\n----------------------------------------------\n"
 
+printf "STEP 1:\n"
 for f in ./data/raw/*.zip;
 do
+  printf "\tFound the zipped data folder -> %s \n\t Extracting the files..." "$f"
   for l in $(unzip -j "$f" -d ./data/raw/ | tail -5);
     do
       if basename "$l" | grep -i -s '\btraining\b'
@@ -20,7 +22,7 @@ do
           printf "\t" | sed '/^[[:space:]]*$/d'
       fi
     done
-echo "----------------------------------------------"
+printf "\n----------------------------------------------\n"
 done;
 
 echo "This is the file -> $TRAIN"
