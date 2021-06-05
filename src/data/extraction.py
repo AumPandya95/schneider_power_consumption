@@ -77,7 +77,7 @@ def extract_data(
 
 
 if __name__ == "__main__":
-    # Read the parameter passed via sh script
+    # Read the parameter passed via script
     import sys
 
     train_data = sys.argv[1]
