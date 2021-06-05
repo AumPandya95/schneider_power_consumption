@@ -43,15 +43,17 @@ def _extract_data_for_site(
 
 
 def extract_data(
+        data_file_names: list,
         site: str
 ) -> None:
     """
     Executor function to extract specific data sets.
+    :param data_file_names: Names of the data files that need to be read. Will be received via cli
     :param site: str: The specific site ID which needs to be filtered from the data
     :return: None: Saves the generated file into the data/processed folder
     """
-    training_data = _data_read("power-laws-detecting-anomalies-in-usage-training-data.csv")
-    building_data = _data_read("power-laws-detecting-anomalies-in-usage-metadata.csv")
+    training_data = _data_read(data_file_names[0])
+    building_data = _data_read(data_file_names[1])
 
     # Converting Timestamp column's data type to datetime
     training_data["Timestamp"] = pd.to_datetime(training_data["Timestamp"])
@@ -75,4 +77,11 @@ def extract_data(
 
 
 if __name__ == "__main__":
-    extract_data("234")
+    # Read the parameter passed via sh script
+    import sys
+
+    train_data = sys.argv[1]
+    meta_data = sys.argv[2]
+    file_name_list = [train_data, meta_data]
+
+    extract_data(file_name_list, "234")
