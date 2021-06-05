@@ -5,7 +5,7 @@ through to generate processed data in the /data/processed/ folder.\n------------
 
 for f in ./data/raw/*.zip;
 do
-  for l in $(unzip -Z1 "$f" | tail -5);
+  for l in $(unzip -j "$f" -d ./data/raw/ | tail -5);
     do
       if basename "$l" | grep -i -s '\btraining\b'
         then
