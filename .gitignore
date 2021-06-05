@@ -7,5 +7,7 @@ venv/
 .vscode
 .idea
 *.Rhistory
+*.__pycache__/
 model_comparison/
 scratch/
+src/data/__pycache__/
