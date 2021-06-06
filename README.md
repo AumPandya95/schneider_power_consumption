@@ -17,13 +17,29 @@ website. For CentOS, you can visit [this](https://computingforgeeks.com/install-
 
 ### Installation
 * Create a virtual environment and activate the same
-```bash
-virtualenv -p python3.9 venv
-source venv/bin/activate
-```
+    ```bash
+    virtualenv -p python3.9 venv
+    source venv/bin/activate
+    ```
 * Specify the python location in place of `python3.9`.
 * You can find the location of your specific python version by using this command (shown for python3.9)
-```bash
-which python3.9
-```
+    ```bash
+    which python3.9
+    ```
 
+### Setup
+* After activating the environment, update setuptools and install the requirements for the project,
+    ```bash
+    pip install -U setuptools
+    pip install -r requirements.txt
+    ```
+* Run the following command to make shell scripts executable,
+    ```bash
+    chmod -x process_data.sh
+    ```
+* Next up, we need to extract data files and save the processed files to the `./data/processed/` directory. For that
+run the following command in the terminal,
+    * Instructions/ information will be given once you run the following script
+    ```bash
+    ./process_data.sh
+    ```
