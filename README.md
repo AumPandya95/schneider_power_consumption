@@ -1,4 +1,6 @@
 # Outlier Detection in Power consumption
+[![Python 3.6](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+
 The objective of this competition was to provide methods for automatically detecting abnormal energy consumption in buildings.
 
 <i>Follow the instructions listed below to get started with the setup of this project on your local system.</i>
