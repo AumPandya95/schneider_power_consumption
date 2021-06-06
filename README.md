@@ -37,6 +37,8 @@ website. For CentOS, you can visit [this](https://computingforgeeks.com/install-
     ```bash
     chmod -x process_data.sh
     ```
+
+### Data Setup
 * Next up, we need to extract data files and save the processed files to the `./data/processed/` directory. For that
 run the following command in the terminal,
     * Instructions/ information will be given once you run the following script
